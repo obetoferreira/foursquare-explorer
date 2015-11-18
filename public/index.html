@@ -8,6 +8,9 @@
 	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 	<link rel="stylesheet" href="dist/all.min.css">
 
+	<script src='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.js'></script>
+  	<link href='https://api.tiles.mapbox.com/mapbox.js/v2.2.3/mapbox.css' rel='stylesheet' />
+
 </head>
 <body ng-app="foursquareExplorer" ng-controller="MainController">
 
@@ -53,6 +56,9 @@
 	<script src="js/appRoutes.js"></script>
 	<script src="js/controllers/MainCtrl.js"></script>
 	<script src="js/controllers/NavCtrl.js"></script>
+	<!-- Home -->
+	<script src="js/controllers/HomeCtrl.js"></script>
+	<script src="js/services/HomeService.js"></script>
 	<!-- Heat Map -->
 	<script src="js/controllers/HeatMapCtrl.js"></script>
 	<script src="js/services/HeatMapService.js"></script>

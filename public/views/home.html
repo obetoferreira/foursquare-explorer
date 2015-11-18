@@ -1,30 +1,42 @@
+<div class="lock-size" layout="row" layout-align="center center">
+	<md-fab-speed-dial md-direction="down" class="md-scale md-fab-top-right">
+		<md-fab-trigger>
+			<md-button aria-label="menu" class="md-fab md-warn">
+				<md-icon>edit</md-icon>
+			</md-button>
+		</md-fab-trigger>
+		<md-fab-actions>
+			<md-button aria-label="Category" class="md-fab md-raised md-mini" ng-click="showBottomSheet('bs-category.html')">
+				<md-tooltip md-visible="tooltipVisible" md-autohide="false">
+              		Category
+            	</md-tooltip>
+				<md-icon aria-label="Category" class="color-01">flag</md-icon>
+			</md-button>
+			<md-button aria-label="Distance" class="md-fab md-raised md-mini" ng-click="showBottomSheet('bs-distance.html')">
+				<md-tooltip md-visible="tooltipVisible" md-autohide="false">
+              		Distance
+            	</md-tooltip>
+				<md-icon aria-label="Distance" class="color-01">location_on</md-icon>
+			</md-button>
+		</md-fab-actions>
+	</md-fab-speed-dial>
+</div>
+
 <div class="container">
-	<md-card class="floating-card">
+	<md-card class="floating-card" id="card-welcome">
 		<md-card-content>
-			<div layout-padding>
-				<h2 class="md-title">Hi! Welcome to the Foursquare Explorer.</h2>
-				<p>
-					This webapp was build to help you to find the best place near to you.
-					<br>
-					Please, start selecting your location, category and distance to a better experience.
-					Enjoy it! ;)
-				</p>
-			</div>
-			<md-content layout="row" layout-sm="column" layout-padding>
-				<md-input-container flex ng-class="md-icon-float">
-					<md-icon>flag</md-icon>
-					<input ng-model="user.title" placeholder="Category">
-				</md-input-container>
-				<md-input-container flex>
-					<md-icon>location_on</md-icon>
-					<input ng-model="user.email" type="email" placeholder="Distance" type="number" step="any" min="10" max="500" ng-pattern="/^1234$/">
-				</md-input-container>
-				<md-button class="md-raised md-primary">Search</md-button>
-			</md-content>
+			<h2 class="md-title">Hi! Welcome to the Foursquare Explorer.</h2>
+			<p>
+				This webapp was build to help you to find the best place near to you.
+				<br>
+				Please, start selecting your location, category and distance to a better experience.
+				Enjoy it! ;)
+			</p>
 		</md-card-content>
+		<md-card-actions layout="row" layout-align="end center">
+			<md-button ng-click="dismiss('#card-welcome')">Let's get it started!</md-button>
+		</md-card-actions>
 	</md-card>
 </div>
 
-<div class="map-hero">
-	<iframe width='100%' height='100%' frameBorder='0' src='https://a.tiles.mapbox.com/v4/obetoferreira.cih22qmd80xntw9m5bh5t1qi8/attribution,zoompan,geocoder,share.html?access_token=pk.eyJ1Ijoib2JldG9mZXJyZWlyYSIsImEiOiJjaWgyMnFucG4weGY2dnFtMzlpZDZnaTdmIn0.BlXsoPukIgpiCxVS1ORXCg'></iframe>
-</div>
+<div class="map-hero" id="map"></div>

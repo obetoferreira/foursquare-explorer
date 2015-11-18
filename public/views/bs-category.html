@@ -1,0 +1,12 @@
+<md-bottom-sheet>
+	<form ng-submit="updatePlaces()">
+		<md-input-container class="md-icon-float md-block">
+			<!-- Use floating label instead of placeholder -->
+			<label>Category</label>
+			<md-icon>flag</md-icon>
+			<input ng-model="category" type="text">
+		</md-input-container>
+		<md-button class="md-raised md-primary" type="submit">Send</md-button>
+		<md-button ng-click="cancelBottomSheet()">Nevermind..</md-button>
+	</form>
+</md-bottom-sheet>

@@ -1,3 +1,15 @@
+.color-00 {
+  color: #eee !important; }
+
+.color-01 {
+  color: #555 !important; }
+
+.bg-00 {
+  background: #eee !important; }
+
+.bg-01 {
+  background: #555 !important; }
+
 /**
 *
 * General Structure
@@ -46,6 +58,12 @@ html, body {
   position: absolute;
   z-index: 10;
   left: 0;
-  top: 20px;
+  top: 100px;
   right: 0;
   max-width: 100%; }
+
+/**
+*
+* Animations
+*
+**/
