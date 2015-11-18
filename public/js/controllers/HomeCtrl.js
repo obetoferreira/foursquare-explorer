@@ -1,13 +1,12 @@
-angular.module('HomeCtrl', []).controller('HomeController', function($scope, homeFactory, $mdBottomSheet) {
+angular.module('HomeCtrl', []).controller('HomeController', function($scope, homeFactory, $mdBottomSheet, $mdDialog) {
 
-	$scope.category = 'sushi';
-	$scope.distance = 500;
+	$scope.category = $scope.category || 'sushi';
+	$scope.distance = $scope.distance ||  500;
 
 	// GeoLocation
 	navigator.geolocation.getCurrentPosition(function(position) {
 		$scope.latLng = position.coords.latitude + ',' +  position.coords.longitude;
 		$scope.getPlaces();
-		console.log( $scope.latLng );
 		$scope.renderMap();
 	});
 
@@ -34,7 +33,7 @@ angular.module('HomeCtrl', []).controller('HomeController', function($scope, hom
 	$scope.showBottomSheet = function(template, $event) {
 		$mdBottomSheet.show({
 			templateUrl: '../../views/' + template,
-			controller: 'HomeController'
+			scope: $scope.$new(true)
 		});
 	}
 	$scope.hideBottomSheet = function() {
@@ -55,5 +54,24 @@ angular.module('HomeCtrl', []).controller('HomeController', function($scope, hom
 		    scrollWheelZoom: false
 		}).setView([-19.9190936,-44.0012427], 15);
 	};
+
+	$scope.showDialog = function($event) {
+       var parentEl = angular.element(document.body);
+       $mdDialog.show({
+         template:
+           '<md-dialog aria-label="List dialog">' +
+           '  <md-dialog-actions>' +
+           '    <md-button ng-click="closeDialog()" class="md-primary">' +
+           '      Close Dialog' +
+           '    </md-button>' +
+           '  </md-dialog-actions>' +
+           '</md-dialog>',
+           controller: 'HomeController'
+      });
+	}
+
+	$scope.closeDialog = function() {
+        $mdDialog.hide();
+    }
 
 });

@@ -1,12 +1,12 @@
 <md-bottom-sheet>
-	<form ng-submit="updatePlaces()">
+	<form ng-submit="$parent.updatePlaces()">
 		<md-input-container class="md-icon-float md-block">
 			<!-- Use floating label instead of placeholder -->
 			<label>Distance (meters)</label>
 			<md-icon>place</md-icon>
-			<input ng-model="distance" type="number">
+			<input ng-model="$parent.distance" type="text">
 		</md-input-container>
-		<md-button class="md-raised md-primary" ng-click="updatePlaces()">Send</md-button>
-		<md-button ng-click="cancelBottomSheet()">Nevermind..</md-button>
+		<md-button class="md-raised md-primary" type="submit">Send</md-button>
+		<md-button ng-click="$parent.cancelBottomSheet()">Nevermind..</md-button>
 	</form>
 </md-bottom-sheet>
