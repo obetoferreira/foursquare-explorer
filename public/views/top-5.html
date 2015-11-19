@@ -1,5 +1,39 @@
-<div class="jumbotron text-center">
-	<h1>Nerds and Proud</h1>
-
-	<p>{{ tagline }}</p>
+<div class="lock-size" layout="row" layout-align="center center">
+	<md-fab-speed-dial md-direction="down" class="md-scale md-fab-top-right">
+		<md-fab-trigger>
+			<md-button aria-label="menu" class="md-fab md-warn">
+				<md-icon>edit</md-icon>
+			</md-button>
+		</md-fab-trigger>
+		<md-fab-actions>
+			<md-button aria-label="Amount" class="md-fab md-raised md-mini" ng-click="showBottomSheet('bs-amount.html')">
+				<md-tooltip md-visible="tooltipVisible" md-autohide="false">
+              		Amount
+            	</md-tooltip>
+				<md-icon aria-label="Amount" class="color-01">format_list_numbered</md-icon>
+			</md-button>
+			<md-button aria-label="Distance" class="md-fab md-raised md-mini" ng-click="showBottomSheet('bs-distance.html')">
+				<md-tooltip md-visible="tooltipVisible" md-autohide="false">
+              		Distance
+            	</md-tooltip>
+				<md-icon aria-label="Distance" class="color-01">track_changes</md-icon>
+			</md-button>
+		</md-fab-actions>
+	</md-fab-speed-dial>
 </div>
+
+<div class="container">
+	<md-card class="floating-card" id="card-welcome">
+		<md-card-content>
+			<h2 class="md-title">Top 5 places</h2>
+			<p>
+				Here you find the top 5 (or #) places according to amount of checkins.
+			</p>
+		</md-card-content>
+		<md-card-actions layout="row" layout-align="end center">
+			<md-button ng-click="dismiss('#card-welcome')">Let's get it started!</md-button>
+		</md-card-actions>
+	</md-card>
+</div>
+
+<div class="map-hero" id="map"></div>

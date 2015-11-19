@@ -1,1 +1,1 @@
-angular.module('foursquareExplorer', ['ngRoute', 'appRoutes', 'ngMaterial', 'MainCtrl', 'NavCtrl', 'HomeCtrl', 'HomeService', 'HeatMapCtrl', 'HeatMapService', 'TopFiveCtrl', 'TopFiveService']);
+angular.module('foursquareExplorer', ['ngRoute', 'appRoutes', 'ngMaterial', 'MainCtrl', 'NavCtrl', 'HomeCtrl', 'PlacesService', 'HeatMapCtrl', 'TopFiveCtrl']);

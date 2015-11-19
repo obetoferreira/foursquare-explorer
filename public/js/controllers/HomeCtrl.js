@@ -1,6 +1,7 @@
-angular.module('HomeCtrl', []).controller('HomeController', function($scope, homeFactory, $mdBottomSheet, $mdDialog) {
+angular.module('HomeCtrl', []).controller('HomeController', function($scope, placesFactory, $mdBottomSheet) {
 
-	$scope.category = $scope.category || 'sushi';
+	$scope.category = 'sushi';
+	$scope.amount = 50;
 	$scope.distance = $scope.distance ||  3000;
 
 	// GeoLocation
@@ -23,10 +24,11 @@ angular.module('HomeCtrl', []).controller('HomeController', function($scope, hom
 			lat: $scope.lat,
 			lon: $scope.lng,
 			category: $scope.category, 
-			distance: $scope.distance
+			distance: $scope.distance,
+			amount: $scope.amount
 		};
 
-		homeFactory.getPlaces(args)
+		placesFactory.getPlaces(args)
 			.success(function(data){
 				$scope.places = data.response.venues;
 				callback();
@@ -70,7 +72,6 @@ angular.module('HomeCtrl', []).controller('HomeController', function($scope, hom
 					if ( place.stats.checkinsCount ) {
 						popupText = popupText + '<p><i><small>Checkins: ' + place.stats.checkinsCount + '</small></i></p>';
 					}
-					console.log( place );
 					L.marker([place.location.lat, place.location.lng])
 						.bindPopup(popupText)
 						.addTo($scope.map);
